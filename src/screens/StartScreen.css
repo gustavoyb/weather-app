@@ -1,0 +1,47 @@
+.StartScreen {
+  width: 1000px;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+
+.left__side {
+  background-color: #1e213a;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.left__side > Button {
+  display: block;
+  width: 50%;
+  margin: 2%;
+}
+
+.image__weather {
+  width: 60%;
+  margin-left: 25%;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.degrees__weather {
+  text-align: center;
+}
+
+.date__weather {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.location__weather {
+  margin-left: 28%;
+  margin-top: 20%;
+  display: flex;
+}
+
+.right__side {
+  background-color: blue;
+  width: 70%;
+}
