@@ -3,6 +3,7 @@ import React from "react";
 import "./StartScreen.css";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DateWeatherCard from "../components/DateWeatherCard";
+import HumidityCard from "../components/HumidityCard";
 
 function StartScreen() {
   const [latitude, setLatitude] = React.useState(0);
@@ -68,6 +69,9 @@ function StartScreen() {
         </div>
         <div className="today__info">
           <Typography variant="h5">Today's Hightlights</Typography>
+          <div className="today__info__cards">
+            <HumidityCard />
+          </div>
         </div>
       </div>
     </div>
