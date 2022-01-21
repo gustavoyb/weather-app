@@ -66,6 +66,9 @@ function StartScreen() {
           <DateWeatherCard />
           <DateWeatherCard />
         </div>
+        <div className="today__info">
+          <Typography variant="h5">Today's Hightlights</Typography>
+        </div>
       </div>
     </div>
   );
