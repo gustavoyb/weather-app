@@ -3,7 +3,7 @@
   height: 600px;
   display: flex;
   flex-direction: row;
-  color: white;
+  color: #bfbfc8;
 }
 
 .left__side {
@@ -42,6 +42,13 @@
 }
 
 .right__side {
-  background-color: blue;
+  background-color: #100e1d;
   width: 70%;
+}
+
+.dates__weather {
+  margin: 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 5%;
 }
