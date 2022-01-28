@@ -4,11 +4,15 @@ import "./StartScreen.css";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DateWeatherCard from "../components/DateWeatherCard";
 import HumidityCard from "../components/HumidityCard";
+import AirPressureCard from "../components/AirPressureCard";
+import WindStatusCard from "../components/WindStatusCard";
+import VisibilityCard from "../components/VisibilityCard";
 
 function StartScreen() {
   const [latitude, setLatitude] = React.useState(0);
   const [longitude, setLongitude] = React.useState(0);
-  const [ubicacion, setUbicacion] = React.useState<any[]>([]);
+  const [weatherData, setWeatherData] = React.useState("");
+
 
   React.useEffect(() => {
     if (navigator.geolocation) {
@@ -27,14 +31,18 @@ function StartScreen() {
     fetch(`/api/location/search/?lattlong=${latitude},${longitude}`)
       .then((res) => res.json())
       .then((json) => {
-        setUbicacion(json[0]);
+        fetch(`/api/location/${json[0].woeid}`)
+          .then((res) => res.json())
+          .then((json) => {
+            setWeatherData(json);
+          })
       })
       .catch((err) => {
         console.log(err);
       });
   }, [latitude, longitude]);
 
-  console.log(ubicacion);
+  console.log(weatherData);
 
   return (
     <div className="StartScreen">
@@ -70,7 +78,12 @@ function StartScreen() {
         <div className="today__info">
           <Typography variant="h5">Today's Hightlights</Typography>
           <div className="today__info__cards">
+            <WindStatusCard />
             <HumidityCard />
+          </div>
+          <div className="today__info__cards">
+            <VisibilityCard />
+            <AirPressureCard />
           </div>
         </div>
       </div>
